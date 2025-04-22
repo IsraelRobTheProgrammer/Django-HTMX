@@ -1,8 +1,14 @@
 import pytest
-from tracker.factories import TransactionFactory
+from tracker.factories import TransactionFactory, UserFactory
 
 
 @pytest.fixture
 def transactions():
     """return a batch of transactions"""
     return TransactionFactory.create_batch(20)
+
+
+@pytest.fixture
+def user_transactions():
+    user = UserFactory()
+    return TransactionFactory.create_batch(20, user=user)

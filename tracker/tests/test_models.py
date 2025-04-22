@@ -1,3 +1,7 @@
+"""
+Test the models of tracker app
+"""
+
 import pytest
 from tracker.models import Transaction
 
@@ -7,7 +11,7 @@ def test_manager_get_income_method(transactions):
     """
     Check whether get_income trx manager works correctly
     """
-    # print(transactions, "trx")
+    # print(transactions.user, "trx_user")
     qs = Transaction.objects.get_income()
 
     assert qs.count() > 0
